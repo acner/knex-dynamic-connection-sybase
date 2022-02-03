@@ -1,0 +1,118 @@
+{
+  "_from": "knex-dynamic-connection@^1.0.5",
+  "_id": "knex-dynamic-connection@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-u/2kvIv7i2qRqEyjsM3LdGYIVQMv/E9ybd0e6XOSZCZmtzud68v8jxSggkGIBaqqZ6WY3Um6LUwy9GpeoEwZiw==",
+  "_location": "/knex-dynamic-connection",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "knex-dynamic-connection@^1.0.5",
+    "name": "knex-dynamic-connection",
+    "escapedName": "knex-dynamic-connection",
+    "rawSpec": "^1.0.5",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.5"
+  },
+  "_requiredBy": [
+    "/@adonisjs/lucid"
+  ],
+  "_resolved": "https://registry.npmjs.org/knex-dynamic-connection/-/knex-dynamic-connection-1.0.6.tgz",
+  "_shasum": "7054fad5b98e19802ecb43afa3c716162d782eca",
+  "_spec": "knex-dynamic-connection@^1.0.5",
+  "_where": "/Users/admin/angularProjects/adonis5-boilerplate/node_modules/@adonisjs/lucid",
+  "author": {
+    "name": "virk"
+  },
+  "bugs": {
+    "url": "https://github.com/thetutlage/knex-dynamic-connection/issues"
+  },
+  "bundleDependencies": false,
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "knex": "^0.21.0"
+  },
+  "deprecated": false,
+  "description": "Adds support for dynamically returning connection config for knex queries",
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^2.3.0",
+    "@types/node": "^13.13.0",
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "del-cli": "^3.0.0",
+    "doctoc": "^1.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-adonis": "^1.0.9",
+    "husky": "^4.2.5",
+    "japa": "^3.0.1",
+    "mrm": "^2.2.1",
+    "mssql": "^6.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "np": "^6.2.1",
+    "pg": "^8.0.2",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
+  },
+  "files": [
+    "build/src",
+    "build/index.d.ts",
+    "build/index.js"
+  ],
+  "homepage": "https://github.com/thetutlage/knex-dynamic-connection#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "doctoc README.md --title='## Table of contents' && git add README.md",
+      "commit-msg": "node ./node_modules/@adonisjs/mrm-preset/validateCommit/conventional/validate.js"
+    }
+  },
+  "keywords": [
+    "knex",
+    "db"
+  ],
+  "license": "MIT",
+  "main": "build/index.js",
+  "name": "knex-dynamic-connection",
+  "np": {
+    "contents": ".",
+    "anyBranch": false,
+    "tests": false
+  },
+  "nyc": {
+    "exclude": [
+      "test"
+    ],
+    "extension": [
+      ".ts"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thetutlage/knex-dynamic-connection.git"
+  },
+  "scripts": {
+    "build": "npm run compile",
+    "clean": "del build",
+    "commit": "git-cz",
+    "compile": "npm run lint && npm run clean && tsc",
+    "docker:build": "docker-compose -f docker-compose.yml -f docker-compose-test.yml build",
+    "lint": "eslint . --ext .ts",
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "pretest": "npm run lint",
+    "release": "np",
+    "test": "npm run docker:build && docker-compose -f docker-compose.yml -f docker-compose-test.yml run --rm test",
+    "test:docker": "npm run test:mysql && npm run test:mysql2 && npm run test:mssql && npm run test:pg",
+    "test:mssql": "DB=mssql node japaFile.js",
+    "test:mysql": "DB=mysql node japaFile.js",
+    "test:mysql2": "DB=mysql2 node japaFile.js",
+    "test:pg": "DB=pg node japaFile.js",
+    "version": "npm run build"
+  },
+  "version": "1.0.6"
+}
